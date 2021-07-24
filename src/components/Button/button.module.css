@@ -1,0 +1,16 @@
+.Button {
+  padding: 15px 5px;
+  font-size: 30px;
+  background-color: rgb(0, 0, 0, 0.1);
+  border: 1px solid white;
+  color: white;
+  outline: none;
+}
+
+.Button:hover {
+  background-color: rgb(0, 0, 0, 0.4);
+}
+
+.NoButton {
+  display: none;
+}

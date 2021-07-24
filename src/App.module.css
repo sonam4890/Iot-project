@@ -1,0 +1,21 @@
+.App {
+  background-color: black;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .App {
+    padding: 20px 20px;
+  }
+}
+@media (max-width: 500px) {
+  .App {
+    padding: 20px 10px;
+  }
+}
+@media (max-width: 400px) {
+  .App {
+    padding: 20px 0px;
+  }
+}
