@@ -44,10 +44,7 @@ export class SearchList extends Component {
             {this.props.error ? (
               <div>Error in fetching data</div>
             ) : (
-              <div>
-                No Data Found. <br></br>
-                Please Enter the valid Text
-              </div>
+              <div>No Data Found</div>
             )}
           </div>
         )}

@@ -2,7 +2,7 @@
   background-color: black;
   box-sizing: border-box;
   min-height: 100vh;
-  background-color: rgb(189, 238, 189);
+  background-color: rgb(42, 42, 42);
 }
 
 .Welcome {
@@ -10,22 +10,6 @@
   top: 50vh;
   width: 100%;
   text-align: center;
-  font-size: 40px;
-  color: rgb(47, 0, 255);
-}
-
-@media (max-width: 900px) {
-  .App {
-    padding: 20px 20px;
-  }
-}
-@media (max-width: 500px) {
-  .App {
-    padding: 20px 10px;
-  }
-}
-@media (max-width: 400px) {
-  .App {
-    padding: 20px 0px;
-  }
+  font-size: 30px;
+  color: rgb(115, 255, 0);
 }

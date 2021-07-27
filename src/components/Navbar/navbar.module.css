@@ -26,12 +26,3 @@
 .Logo:focus {
   border: 2px dotted white;
 }
-
-@media (max-width: 520px) {
-  .Navbar {
-    padding: 10px 3px;
-  }
-  .Logo {
-    font-size: 20px;
-  }
-}
