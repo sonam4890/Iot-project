@@ -1,5 +1,4 @@
 import React from "react";
-// import SearchList from "../SearchList/searchList";
 import styles from "./search.module.css";
 
 const search = (props) => {
@@ -7,7 +6,7 @@ const search = (props) => {
     <div className={styles.SearchField}>
       <input
         className={styles.SearchInput}
-        placeholder="Search IMDB"
+        placeholder="Search"
         onChange={(e) => props.inputChange(e.target.value)}
       ></input>
       <span className={styles.Icon}>

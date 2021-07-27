@@ -2,36 +2,14 @@
   display: flex;
   flex-direction: row;
   background-color: black;
-  justify-content: space-between;
+  justify-content: center;
   box-sizing: border-box;
-  padding: 10px;
-  /* height: 70px; */
+  padding: 20px;
   box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-/* .Icon {
-  color: white;
-} */
-
-.Anchor {
-  display: block;
-  color: white;
-  font-size: 16px;
-  padding: 5px 8px;
-}
-
-.Anchor:hover {
-  background-color: rgb(47, 46, 46);
-  border: 1px solid black;
-  border-radius: 6px;
-  color: white;
 }
 
 .Logo {
-  display: block;
+  display: inline-block;
   background-color: gold;
   font-weight: 900;
   font-size: 20px;

@@ -10,7 +10,9 @@ class App extends Component {
     searchData: [],
     page: 1,
     error: null,
+    loading: false,
     hasMore: true,
+    show: false,
   };
 
   uniqueObject = (arr, key) => {
@@ -24,53 +26,83 @@ class App extends Component {
       )
       .then((res) => {
         // console.log(res);
-        let search = [
-          ...this.state.searchData,
-          ...res.data.photos.photo?.filter((photo) => photo.title !== ""),
-        ];
+        if (res.data.photos.photo.length > 0 && res.data.stat === "ok") {
+          let search = [
+            ...this.state.searchData,
+            ...res.data.photos.photo?.filter((photo) => photo.title !== ""),
+          ];
 
-        let finalSearchData = this.uniqueObject(search, "id");
+          let newSearchData = this.uniqueObject(search, "id");
+          let finalSearchData = this.uniqueObject(newSearchData, "title");
 
-        if (res.data.photos.pages <= res.data.photos.page) {
+          if (res.data.photos.pages <= res.data.photos.page) {
+            this.setState({
+              hasMore: false,
+              loading: false,
+            });
+          }
           this.setState({
-            hasMore: false,
+            searchData: finalSearchData,
+            loading: false,
           });
+        } else {
+          this.setState({ searchData: null, loading: false });
         }
-        this.setState({
-          searchData: finalSearchData,
-        });
       })
       .catch((err) => {
         this.setState({
-          error: err,
+          error: "Error in fetching data",
+          loading: false,
         });
       });
   };
 
   searchDataHandler = (event) => {
-    this.setState({
-      searchData: [],
-      title: event,
-      page: 1,
-    });
-    this.dataHandler(event, this.state.page);
+    if (event !== "") {
+      this.setState({
+        searchData: [],
+        title: event,
+        page: 1,
+        show: true,
+        hasMore: true,
+        loading: true,
+        error: null,
+      });
+      this.dataHandler(event, this.state.page);
+    } else {
+      this.setState({
+        searchData: [],
+        show: false,
+      });
+    }
   };
 
   fetchMoreData = () => {
-    // console.log(this.state.title, this.state.page);
     this.dataHandler(this.state.title, this.state.page + 1);
-    this.setState((prevState) => ({ page: prevState.page + 1 }));
+    this.setState((prevState) => ({
+      page: prevState.page + 1,
+      loading: true,
+      error: null,
+    }));
   };
 
   render() {
     return (
       <div className={styles.App}>
         <Navbar search={this.searchDataHandler} />
-        <SearchList
-          searchList={this.state.searchData}
-          fetchMore={this.fetchMoreData}
-          hasMore={this.state.hasMore}
-        />
+        {this.state.show ? (
+          <SearchList
+            searchList={this.state.searchData}
+            fetchMore={this.fetchMoreData}
+            hasMore={this.state.hasMore}
+            loading={this.state.loading}
+            error={this.state.error}
+          />
+        ) : (
+          <div className={styles.Welcome}>
+            Welcome to <span>Iot83</span>
+          </div>
+        )}
       </div>
     );
   }

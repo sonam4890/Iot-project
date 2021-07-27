@@ -1,7 +1,17 @@
 .App {
   background-color: black;
-  padding: 20px 40px;
   box-sizing: border-box;
+  min-height: 100vh;
+  background-color: rgb(189, 238, 189);
+}
+
+.Welcome {
+  position: absolute;
+  top: 50vh;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(47, 0, 255);
 }
 
 @media (max-width: 900px) {

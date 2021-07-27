@@ -3,7 +3,7 @@
   width: 100%;
   background-color: rgb(42, 42, 42);
   min-height: 80vh;
-  margin-top: 20px;
+  padding: 20px;
   color: white;
 }
 
@@ -14,6 +14,7 @@
   text-align: center;
   font-size: 30px;
   color: rgb(115, 255, 0);
+  line-height: 40px;
 }
 
 .Item {
@@ -26,18 +27,21 @@
 
 .Poster {
   width: 20%;
-  height: 100%;
+}
+
+.Text {
+  padding-left: 20px;
+  box-sizing: border-box;
+  width: 80%;
 }
 
 .Title {
-  margin-left: 20px;
   color: rgb(236, 230, 230);
   font-size: 17px;
   font-weight: 500;
 }
 
 .Download {
-  margin-left: 20px;
   padding: 15px 0 10px 0;
 }
 
